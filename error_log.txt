@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "C:\Data Science project\src\components\data_transformation.py", line 76, in initiate_data_transformation
+    input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train_df)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\compose\_column_transformer.py", line 996, in fit_transform
+    result = self._call_func_on_transformers(
+        X,
+    ...<3 lines>...
+        routed_params=routed_params,
+    )
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\compose\_column_transformer.py", line 897, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\joblib\parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+                                                ~~~~^^^^^^^^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\joblib\parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\pipeline.py", line 1540, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **params.get("fit_transform", {}))
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\pipeline.py", line 731, in fit_transform
+    return last_step.fit_transform(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        Xt, y, **last_step_params["fit_transform"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\utils\_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\base.py", line 894, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\preprocessing\_data.py", line 907, in fit
+    return self.partial_fit(X, y, sample_weight)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "C:\Users\ankan\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\preprocessing\_data.py", line 972, in partial_fit
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Cannot center sparse matrices: pass `with_mean=False` instead. See docstring for motivation and alternatives.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Data Science project\src\components\data_ingestion.py", line 52, in <module>
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Data Science project\src\components\data_transformation.py", line 94, in initiate_data_transformation
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Data Science project\src\components\data_transformation.py] line number [76] error message[Cannot center sparse matrices: pass `with_mean=False` instead. See docstring for motivation and alternatives.]
